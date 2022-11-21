@@ -16,7 +16,8 @@ logging.config.dictConfig(uvicorn_logger)
 codegen = CodeGenProxy(
     host=os.environ.get("TRITON_HOST", "triton"),
     port=os.environ.get("TRITON_PORT", 8001),
-    verbose=os.environ.get("TRITON_VERBOSITY", False)
+    verbose=os.environ.get("TRITON_VERBOSITY", False),
+    model=os.environ.get("TRITON_MODEL", "fastertransformer"),
 )
 
 app = FastAPI(
